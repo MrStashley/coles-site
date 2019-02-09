@@ -1,0 +1,48 @@
+.login{
+	float:right;
+	position:relative;
+	right: 30px;
+	margin-left:1px;
+}
+
+.userform{
+	margin: 1px;
+}
+
+.form{
+	display:none; 
+	float:right;
+	background-color: red;
+	position:relative;
+	z-index: 1;
+	bottom:30px;
+}
+
+body{
+	background-image: url('/images/psychedelicbackground.jpg');
+}
+
+h1,h2,a{
+	position:relative;
+	bottom: 600px;
+	text-align:center;
+	float:center;
+}
+
+a{
+	position:relative;
+	left: 890px;
+}
+
+#logout{
+	float:right;
+	position:relative;
+	left:123px;
+	top:10px;
+	margin-left:1px;
+	display:none;
+}
+
+span{
+	background-color: red;
+}

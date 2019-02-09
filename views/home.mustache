@@ -1,0 +1,100 @@
+<html>
+<head>
+	<link rel="stylesheet" type ="text/css" href ="/css/homestyle.css">
+	<link rel='shortcut icon' type='image/gif' href='/images/favicon.ico' />
+
+</head>
+
+<body>
+	<h3 style = "float:right;display:none; border: 1px solid #888; background: white;" id = "greeting"></h3>
+	<button type = "button" class = "login" onclick = "showform(2);">Register</button>
+	<button type = "button" class = "login" onclick = "showform(1);">Log in</button>
+	<br><br>
+	<button type = "button" id = "logout" onclick = "logoutf();">Logout</button>
+
+	<br>
+	<br>
+
+	<form id = "loginform" action="/userinfo" class ='form' method="get">
+	<h4 style = "position: relative;left:130px;margin:1px">Login</h4>
+	Username: <input class = "userform" type="text" name="username"><br>
+	Password:  <input type="text" class = "userform"style = "position:relative; left: 4px;" name="password"><br>
+	<button type="submit" style = "position:relative; left: 189px;" value="Submit">Submit</button>
+	</form>
+
+	<form id = "registerform" action="/userinfo/register" class = "form"method="get">
+		<h4 style = "position: relative;left:130px;margin:1px">Register</h4>
+	Username: <input class = "userform" type="text" name="username"><br>
+	Password:  <input type="text" class = "userform"style = "position:relative; left: 4px;" name="password"><br>
+	<button type="submit" style = "position:relative; left: 189px;" value="Submit">Submit</button>
+	</form>
+
+	<br><br>
+	<div style = "position: relative; left: 550px; height: 600px; width: 800px; border: 1px solid #888; background: white; z-index: 0;"></div>
+	<h1>This is the homepage</h1>
+	<h2>Not much going on here, This is a Work in Progress. Check back later :)</h2>
+
+	<a href="/BouncyBall">Play BouncyBall.io</a>
+
+	<script>
+		const loginform = document.getElementById("loginform");
+		const registerform = document.getElementById("registerform");
+		loginform.style.display = "none";
+		registerform.style.display = "none";
+		function showform(form){
+			if (form == 1){
+				if(loginform.style.display == "none"){
+					loginform.style.display = "initial";
+				}else
+					loginform.style.display = "none";
+
+				registerform.style.display = "none";
+			}else if (form == 2){
+				if(registerform.style.display == "none")
+					registerform.style.display = "initial";
+				else 
+					registerform.style.display = "none";
+
+				loginform.style.display =  "none";
+			}
+		}
+
+		function logoutf(){
+			window.location.replace("/logout");
+		}
+		</script>
+
+	<script>
+		var button = document.getElementsByClassName("login");
+		var logout = document.getElementById("logout");
+		console.log("{{logininfo}}");
+		if ({{logininfo}} == 1){
+			alert("Incorrect username or password. Try again or Create an account!");
+			button[0].style.display = "initial";
+			button[1].style.display = "initial";
+		}
+		else if({{logininfo}} == 2){
+			const greeting = document.getElementById("greeting");
+			greeting.style.display = "initial";
+			greeting.innerHTML = "Hello, {{username}}!";
+
+			button[0].style.display = "none";
+			button[1].style.display = "none";
+			logout.style.display = "initial";
+		}else if({{logininfo}} == 3){
+			alert("Something has gone wrong. Multiple accounts were found with your login information. Please Contact an admin for more help.");
+			button[0].style.display = "initial";
+			button[1].style.display = "initial";
+		}else if({{logininfo}} == 4){
+			button[0].style.display = "initial";
+			button[1].style.display = "initial";
+			alert("Account has been created successfully!");
+		}
+
+
+
+	</script>
+
+</body>
+
+</html>
