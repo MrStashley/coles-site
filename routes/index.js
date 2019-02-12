@@ -3,11 +3,11 @@ const router = express.Router()
 const mysql = require('mysql') 
 
 const con = mysql.createConnection({
-	host: "127.0.0.1",
-	user: "root",
-	password:"Baseball1",
+	host: "us-cdbr-iron-east-03.cleardb.net",
+	user: "b31e06c660fbbd",
+	password:"d9509ec4",
 	port: 3306,
-	database: "colesdb"
+	database: "heroku_a07141a102e2b1f"
 })
 
 var logindata = {
