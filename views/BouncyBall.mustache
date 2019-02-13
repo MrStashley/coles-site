@@ -267,7 +267,6 @@ function getMousePos(canvas, evt) {
 			mouseX = pos.x;
 			mouseY = pos.y;
 			socket.emit('mousepos', userIndex, mouseX,mouseY);
-			console.log(balls);
 			
 		}
 	});
@@ -279,6 +278,7 @@ function getMousePos(canvas, evt) {
 	canvas.addEventListener("mousedown", function(e){	
 		if(e.button == 0){
 			socket.emit('createball', mouseX, mouseY);
+			console.log(balls);
 		}
 	
 	});

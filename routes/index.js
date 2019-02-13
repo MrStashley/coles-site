@@ -2,12 +2,14 @@ const express = require('express')
 const router = express.Router()
 const mysql = require('mysql') 
 
-const con = mysql.createConnection({
+const con = mysql.createPool({
+	connectionLimit: 100,
 	host: "us-cdbr-iron-east-03.cleardb.net",
 	user: "b31e06c660fbbd",
 	password:"d9509ec4",
 	port: 3306,
-	database: "heroku_a07141a102e2b1f"
+	database: "heroku_a07141a102e2b1f",
+	debug: 'false'
 })
 
 var logindata = {
@@ -15,13 +17,13 @@ var logindata = {
 }
 
 
-con.connect(function(err){
+/*con.connect(function(err){
 	if(err){
 		console.error("Error Connecting" + err.stack)
 	}
 	console.log("Connected as id " + con.threadId)
 
-})
+})*/
 
 
 router.get('/', (req, res, next) => { //handles GET request
