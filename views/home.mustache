@@ -30,11 +30,13 @@
 	</form>
 
 	<br><br>
-	<div style = "position: relative; left: 550px; height: 600px; width: 800px; border: 1px solid #888; background: white; z-index: 0;"></div>
-	<h1>This is the homepage</h1>
-	<h2>Not much going on here, This is a Work in Progress. Check back later :)</h2>
-
-	<a href="/BouncyBall">Play BouncyBall.io</a>
+	<div style = "text-align: center;">
+		<div style = "display: inline-block; height: 600px; width: 50%; border: 1px solid #888; background: white; z-index: 0;">
+			<h1>Cole Lashley</h1>
+			<h2>Not much going on here, This is a Work in Progress. Check back later :)</h2>
+			<a href="/BouncyBall">Play BouncyBall.io</a>
+		</div>
+	</div>
 
 	<script>
 		const loginform = document.getElementById("loginform");
@@ -52,7 +54,7 @@
 			}else if (form == 2){
 				if(registerform.style.display == "none")
 					registerform.style.display = "initial";
-				else 
+				else
 					registerform.style.display = "none";
 
 				loginform.style.display =  "none";
