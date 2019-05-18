@@ -12,7 +12,7 @@
 .form{
 	display:none;
 	float:right;
-	background-color: red;
+	background-color: white;
 	position:relative;
 	z-index: 1;
 	bottom:30px;
